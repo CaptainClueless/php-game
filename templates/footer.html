@@ -1,0 +1,39 @@
+
+</div>
+<small>A game by Daniel Hawkins - Do not try this at home!</small>
+</body>
+
+<script
+        src="//code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+
+<script>
+    $(document).keydown(function(e) {
+        if (e.keyCode == '37') { //left
+                $('.left-button').click();
+        }
+
+        if (e.keyCode == '39') { //right
+            $('.right-button').click();
+        }
+
+
+        if (e.keyCode == '38') { //up
+            $('.up-button').click();
+        }
+
+
+        if (e.keyCode == '40') { //down
+            $('.down-button').click();
+        }
+
+
+
+
+    });
+
+
+</script>
+</html>
