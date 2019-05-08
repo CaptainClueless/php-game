@@ -4,6 +4,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+require_once "vendor/autoload.php";
+
+$twig = new \Twig\Environment(new \Twig\Loader\FilesystemLoader(['templates/'], __DIR__));
 
 class Game {
 
@@ -263,15 +266,16 @@ class Game {
 
     }
     public function render(){
+        global $twig;
+        $this->html_output = $twig->render('header.html');
 
-        $this->html_output = file_get_contents('templates/header.html');
         $this->html_output .= $this->generate_board();
 
         if($this->player_is_alive){
             $this->html_output.= $this->generate_form();
         }
 
-        $this->html_output.= file_get_contents('templates/footer.html');
+        $this->html_output .= $twig->render('footer.html');
 
 
 
