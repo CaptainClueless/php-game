@@ -56,10 +56,12 @@ class Game {
     }
 
     private function door_check($action_to_take, $door = 'D' ){
-        if($action_to_take == $door) {
-            //Up level count and refresh
-            echo '<script>document.cookie = "php_game_level_number='. ($this->level_number + 1) .';path=/";  window.location.assign(window.location.href);</script>';
-            return true;
+        if($this->collected_all_coins == true) {
+            if($action_to_take == $door) {
+                //Up level count and refresh
+                echo '<script>document.cookie = "php_game_level_number='. ($this->level_number + 1) .';path=/";  window.location.assign(window.location.href);</script>';
+                return true;
+            }
         }
         return false;
     }
